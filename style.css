@@ -1,0 +1,189 @@
+/* 🎨 นำเข้า font Kanit จาก Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* 🌈 กำหนดตัวแปรสีหลักของเว็บไซต์ */
+:root {
+  --primary-color: #eac0a2; /* สีพื้นหลังหลักของหน้า */
+  --secondary-color: #6b4632; /* สีตัวอักษรหลักหรือเน้น */
+  --bg-card-color: #f5f5f5; /* สีพื้นหลังอ่อน เช่น section หรือ card */
+  --text-title-color: #514646; /* สีหัวข้อหรือ border */
+  --text-desc-color: #a7a2a4; /* สีเนื้อหา */
+}
+
+/* ✏️ ตั้งค่า font และ box-sizing พื้นฐาน */
+* {
+  font-family: "Kanit", sans-serif; /* ใช้ font Kanit กับทุก element */
+  font-size: 16px; /* ขนาดตัวอักษรเริ่มต้น */
+  box-sizing: border-box; /* รวม padding และ border ในขนาด element */
+}
+
+/* 🖥 body ครอบจอทั้งหมด และจัด container กลางหน้าจอ */
+body {
+  width: 100dvw; /* ครอบคลุมความกว้าง viewport ทั้งหมด */
+  height: 100dvh; /* ครอบคลุมความสูง viewport ทั้งหมด */
+  margin: 0; /* ลบ margin เริ่มต้น */
+  padding: 0; /* ลบ padding เริ่มต้น */
+  background-color: var(--primary-color); /* ใช้สีพื้นหลังหลัก */
+  display: flex; /* ใช้ Flexbox เพื่อจัด layout ลูก */
+  justify-content: center; /* จัด container ให้อยู่กลางแนวนอน */
+  align-items: center; /* จัด container ให้อยู่กลางแนวตั้ง */
+}
+
+/* 📦 container หลัก */
+.container {
+  margin: 16px; /* ระยะขอบรอบ container */
+  width: 90%; /* ความกว้าง 90% ของหน้าจอ */
+  max-width: 600px; /* จำกัดความกว้างสูงสุด */
+  height: calc(
+    100dvh - 32px
+  ); /* ความสูงเต็มหน้าจอ ลบ margin 16px ทั้งสองด้าน */
+  display: flex; /* ใช้ flex เพื่อจัด layout ลูก */
+  flex-direction: column; /* เรียงลูกในแนวตั้ง (top -> bottom) */
+  border-radius: 16px; /* มุมโค้งมน */
+}
+
+/* 🔼 ส่วนบน top */
+.top {
+  flex: 3; /* กินพื้นที่ 2 ส่วนจากทั้งหมดของ container */
+  position: relative; /* ให้ลูก absolute จัดตำแหน่งอิงกับ top */
+  border-radius: 16px; /* มุมโค้งมน */
+  overflow: visible; /* ซ่อนส่วนที่เกินขอบ */
+  padding: 0 0 0 24px;
+  margin: 16px 24px 16px 0;
+}
+
+/* 🧩 left (โปรไฟล์) */
+.left {
+  position: absolute; /* วางตำแหน่งอิสระ */
+  left: 0; /* ชิดซ้าย */
+  top: -16px; /* ชิดด้านบน */
+  bottom: -16px; /* สูงเต็ม top */
+  width: 45%; /* กว้าง 40% ของ top */
+  display: flex; /* ใช้ flex เพื่อจัดลูกภายใน */
+  flex-direction: column; /* เรียงลูกแนวตั้ง */
+  gap: 10px; /* ระยะห่างระหว่าง profileImg และ profileInfo */
+  z-index: 1; /* ให้อยู่ด้านบน */
+}
+
+/* 📸 profileImg */
+.profileImg {
+  margin: 0;
+  padding-top: 8px;
+  flex: 1; /* กินพื้นที่ครึ่งหนึ่งของ left */
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileImg .top {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-radius: 16px 0 0 0;
+}
+
+.profileImg .top .left {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  bottom: 0;
+  background-color: var(--bg-card-color);
+  border-radius: 30px 90px 0 0; /* ให้มุมซ้ายบนโค้ง */
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileImg .top .right {
+  position: absolute;
+  width: 50%;
+  left: 45%;
+  top: -8px;
+  bottom: 0;
+  border-radius: 30px 90px 0 0; /* ให้มุมซ้ายบนโค้ง */
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.profileImg .bottom {
+  flex: 7;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-radius: 0 16px 16px 16px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+.ImgBg {
+  height: 90%;
+  background-color: var(--primary-color); /* พื้นหลังอ่อน */
+  position: absolute;
+  top: 16px;
+  border: 16px;
+  left: 16px;
+  right: 16px;
+  border-radius: 16px;
+}
+
+img {
+  position: absolute;
+  width: 65%;
+  bottom: 2px;
+  z-index: 3;
+}
+
+/* ℹ️ profileInfo */
+.profileInfo {
+  flex: 1; /* กินพื้นที่อีกครึ่งหนึ่งของ left */
+  border-radius: 16px; /* มุมโค้งมน */
+  background-color: var(--bg-card-color); /* พื้นหลังอ่อน */
+  padding: 16px 16px 16px 24px;
+}
+
+/* 🧾 right (รายละเอียดหลัก) */
+.right {
+  position: absolute; /* ซ้อนทับกับ left */
+  top: 8px; /* ชิดด้านบน */
+  bottom: 0; /* สูงเต็ม top */
+  width: 100%; /* กว้าง 0% ของ top */
+  border-radius: 16px; /* มุมโค้งมน */
+  background-color: var(--secondary-color); /* พื้นหลังอ่อน */
+  z-index: 0; /* อยู่ด้านหลัง left */
+}
+
+/* 🔽 ส่วนล่าง bottom */
+.bottom {
+  margin: 16px 0 0 0; /* ระยะขอบบน 16px */
+  padding: 16px 16px 16px 24px;
+  flex: 1; /* กินพื้นที่ 1 ส่วนจาก container */
+  border-radius: 16px; /* มุมโค้งมน */
+  background-color: var(--bg-card-color); /* พื้นหลังอ่อน */
+}
+
+.section {
+  margin-bottom: 8px;
+  /*padding: 0; */
+}
+
+.section .title {
+  color: var(--text-title-color);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.section .desc,
+.section .item {
+  color: var(--text-desc-color);
+  font-size: 14px;
+}
+
+.section .items {
+  padding-left: 8px;
+}
